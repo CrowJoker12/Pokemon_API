@@ -8,219 +8,219 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/<tipo>')
-def fr(tipo):
-    if tipo == 'normal':
-        dobro = []
-        normal = ['Normal', 'Fogo', 'Agua', 'Grama', 'Eletrico',
-                  'Gelo', 'Lutador', 'Veneno', 'Terra', 'Voador',
-                  'Psiquico', 'Inseto', 'Dragao', 'Trevas', 'Fada']
-        metade = ['Pedra', 'Aco']
-        inefetivo = ['Fantasma']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+@app.route('/<type>')
+def fr(type):
+    if type == 'normal':
+        double = []
+        normal = ['Normal', 'Fire', 'Water', 'Grass', 'Electric',
+                  'Ice', 'Fighting', 'Poison', 'Ground', 'Flying',
+                  'Psychic', 'Bug', 'Dragon', 'Dark', 'Fairy']
+        half = ['Rock', 'Steel']
+        ineffective = ['Ghost']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'fogo':
-        dobro = ['Grama', 'Gelo', 'Inseto', 'Aco']
-        normal = ['Normal', 'Eletrico', 'Lutador', 'Veneno', 'Terra',
-                  'Voador', 'Psiquico', 'Fantasma', 'Trevas', 'Fada']
-        metade = ['Fogo', 'Agua', 'Pedra', 'Dragao']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'fire':
+        double = ['Grass', 'Ice', 'Bug', 'Steel']
+        normal = ['Normal', 'Electric', 'Fighting', 'Poison', 'Ground',
+                  'Flying', 'Psychic', 'Ghost', 'Dark', 'Fairy']
+        half = ['Fire', 'Water', 'Rock', 'Dragon']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'agua':
-        dobro = ['Fogo', 'Terra', 'Pedra']
-        normal = ['Normal', 'Eletrico', 'Lutador', 'Veneno', 'Voador',
-                  'Psiquico', 'Fantasma', 'Trevas', 'Fada',
-                  'Gelo', 'Inseto', 'Aco']
-        metade = ['Agua', 'Grama', 'Dragao']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'water':
+        double = ['Fire', 'Ground', 'Rock']
+        normal = ['Normal', 'Electric', 'Fighting', 'Poison', 'Flying',
+                  'Psychic', 'Ghost', 'Dark', 'Fairy',
+                  'Ice', 'Bug', 'Steel']
+        half = ['Water', 'Grass', 'Dragon']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'eletrico':
-        dobro = ['Agua', 'Voador']
-        normal = ['Fogo', 'Pedra', 'Normal', 'Lutador', 'Veneno',
-                  'Psiquico', 'Fantasma', 'Trevas', 'Fada', 'Gelo',
-                  'Inseto', 'Aco']
-        metade = ['Eletrico', 'Grama', 'Dragao']
-        inefetivo = ['Terra']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'electric':
+        double = ['Water', 'Flying']
+        normal = ['Fire', 'Rock', 'Normal', 'Fighting', 'Poison',
+                  'Psychic', 'Ghost', 'Dark', 'Fairy', 'Ice',
+                  'Bug', 'Steel']
+        half = ['Electric', 'Grass', 'Dragon']
+        ineffective = ['Ground']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'grama':
-        dobro = ['Agua', 'Terra', 'Pedra']
-        normal = ['Normal', 'Eletrico', 'Gelo', 'Lutador',
-                  'Psiquico', 'Fantasma', 'Trevas', 'Fada']
-        metade = ['Fogo', 'Grama', 'Veneno', 'Voador',
-                  'Inseto', 'Dragao', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'grass':
+        double = ['Water', 'Ground', 'Rock']
+        normal = ['Normal', 'Electric', 'Ice', 'Fighting',
+                  'Psychic', 'Ghost', 'Dark', 'Fairy']
+        half = ['Fire', 'Grass', 'Poison', 'Flying',
+                'Bug', 'Dragon', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'gelo':
-        dobro = ['Grama', 'Terra', 'Voador', 'Dragao']
-        normal = ['Normal', 'Eletrico', 'Lutador', 'Veneno',
-                  'Psiquico', 'Inseto', 'Pedra', 'Fantasma',
-                  'Trevas', 'Fada']
-        metade = ['Fogo', 'Agua', 'Gelo', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'ice':
+        double = ['Grass', 'Ground', 'Flying', 'Dragon']
+        normal = ['Normal', 'Electric', 'Fighting', 'Poison',
+                  'Psychic', 'Bug', 'Rock', 'Ghost',
+                  'Dark', 'Fairy']
+        half = ['Fire', 'Water', 'Ice', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'lutador':
-        dobro = ['Normal', 'Gelo', 'Pedra', 'Trevas', 'Aco']
-        normal = ['Fogo', 'Agua', 'Eletrico', 'Grama',
-                  'Lutador', 'Terra', 'Dragao']
-        metade = ['Veneno', 'Voador', 'Psiquico', 'Inseto', 'Fada']
-        inefetivo = ['Fantasma']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'fighting':
+        double = ['Normal', 'Ice', 'Rock', 'Dark', 'Steel']
+        normal = ['Fire', 'Water', 'Electric', 'Grass',
+                  'Fighting', 'Ground', 'Dragon']
+        half = ['Poison', 'Flying', 'Psychic', 'Bug', 'Fairy']
+        ineffective = ['Ghost']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'veneno':
-        dobro = ['Grama', 'Fada']
-        normal = ['Normal', 'Fogo', 'Agua', 'Eletrico', 'Gelo',
-                  'Lutador', 'Voador', 'Psiquico', 'Inseto', 'Dragao', 'Trevas']
-        metade = ['Veneno', 'Terra', 'Pedra', 'Fantasma']
-        inefetivo = ['Aco']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'poison':
+        double = ['Grass', 'Fairy']
+        normal = ['Normal', 'Fire', 'Water', 'Electric', 'Ice',
+                  'Fighting', 'Flying', 'Psychic', 'Bug', 'Dragon', 'Dark']
+        half = ['Poison', 'Ground', 'Rock', 'Ghost']
+        ineffective = ['Steel']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'terra':
-        dobro = ['Fogo', 'Eletrico', 'Veneno', 'Pedra', 'Aco']
-        normal = ['Normal', 'Agua', 'Gelo', 'Lutador', 'Terra',
-                  'Psiquico', 'Fantasma', 'Dragao', 'Trevas', 'Fada']
-        metade = ['Grama', 'Inseto']
-        inefetivo = ['Voador']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'ground':
+        double = ['Fire', 'Electric', 'Poison', 'Rock', 'Steel']
+        normal = ['Normal', 'Water', 'Ice', 'Fighting', 'Ground',
+                  'Psychic', 'Ghost', 'Dragon', 'Dark', 'Fairy']
+        half = ['Grass', 'Bug']
+        ineffective = ['Flying']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'voador':
-        dobro = ['Grama', 'Lutador', 'Inseto']
-        normal = ['Normal', 'Fogo', 'Agua', 'Gelo', 'Veneno',
-                  'Terra', 'Voador', 'Psiquico', 'Fantasma', 'Dragao',
-                  'Trevas', 'Fada']
-        metade = ['Eletrico', 'Pedra', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'flying':
+        double = ['Grass', 'Fighting', 'Bug']
+        normal = ['Normal', 'Fire', 'Water', 'Ice', 'Poison',
+                  'Ground', 'Flying', 'Psychic', 'Ghost', 'Dragon',
+                  'Dark', 'Fairy']
+        half = ['Electric', 'Rock', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'psiquico':
-        dobro = ['Lutador', 'Veneno']
-        normal = ['Normal', 'Fogo', 'Agua', 'Eletrico', 'Grama',
-                  'Gelo', 'Terra', 'Voador', 'Inseto', 'Pedra',
-                  'Fantasma', 'Dragao', 'Fada']
-        metade = ['Psiquico', 'Aco']
-        inefetivo = ['Trevas']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'psychic':
+        double = ['Fighting', 'Poison']
+        normal = ['Normal', 'Fire', 'Water', 'Electric', 'Grass',
+                  'Ice', 'Ground', 'Flying', 'Bug', 'Rock',
+                  'Ghost', 'Dragon', 'Fairy']
+        half = ['Psychic', 'Steel']
+        ineffective = ['Dark']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'inseto':
-        dobro = ['Grama', 'Psiquico', 'Trevas']
-        normal = ['Normal', 'Agua', 'Eletrico', 'Gelo', 'Terra',
-                  'Inseto', 'Pedra', 'Dragao']
-        metade = ['Fogo', 'Lutador', 'Veneno', 'Voador', 'Fantasma',
-                  'Aco', 'Fada']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'bug':
+        double = ['Grass', 'Psychic', 'Dark']
+        normal = ['Normal', 'Water', 'Electric', 'Ice', 'Ground',
+                  'Bug', 'Rock', 'Dragon']
+        half = ['Fire', 'Fighting', 'Poison', 'Flying', 'Ghost',
+                'Steel', 'Fairy']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'pedra':
-        dobro = ['Fogo', 'Gelo', 'Voador', 'Inseto']
-        normal = ['Normal', 'Agua', 'Eletrico', 'Grama', 'Veneno',
-                  'Psiquico', 'Pedra', 'Fantasma', 'Dragao', 'Trevas',
-                  'Fada']
-        metade = ['Lutador', 'Terra', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'rock':
+        double = ['Fire', 'Ice', 'Flying', 'Bug']
+        normal = ['Normal', 'Water', 'Electric', 'Grass', 'Poison',
+                  'Psychic', 'Rock', 'Ghost', 'Dragon', 'Dark',
+                  'Fairy']
+        half = ['Fighting', 'Ground', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'fantasma':
-        dobro = ['Psiquico', 'Fantasma']
-        normal = ['Fogo', 'Agua', 'Eletrico', 'Grama', 'Gelo',
-                  'Lutador', 'Veneno', 'Terra', 'Voador', 'Inseto',
-                  'Pedra', 'Dragao', 'Aco', 'Fada']
-        metade = ['Trevas']
-        inefetivo = ['Normal']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'ghost':
+        double = ['Psychic', 'Ghost']
+        normal = ['Fire', 'Water', 'Electric', 'Grass', 'Ice',
+                  'Fighting', 'Poison', 'Ground', 'Flying', 'Bug',
+                  'Rock', 'Dragon', 'Steel', 'Fairy']
+        half = ['Dark']
+        ineffective = ['Normal']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'dragao':
-        dobro = ['Dragao']
-        normal = ['Psiquico', 'Fantasma', 'Fogo', 'Agua', 'Eletrico',
-                  'Grama', 'Gelo', 'Lutador', 'Veneno', 'Terra',
-                  'Voador', 'Inseto', 'Pedra', 'Trevas', 'Normal']
-        metade = ['Aco']
-        inefetivo = ['Fada']
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'dragon':
+        double = ['Dragon']
+        normal = ['Psychic', 'Ghost', 'Fire', 'Water', 'Electric',
+                  'Grass', 'Ice', 'Fighting', 'Poison', 'Ground',
+                  'Flying', 'Bug', 'Rock', 'Dark', 'Normal']
+        half = ['Steel']
+        ineffective = ['Fairy']
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'trevas':
-        dobro = ['Psiquico', 'Fantasma']
-        normal = ['Fogo', 'Agua', 'Eletrico', 'Grama', 'Gelo',
-                  'Veneno', 'Terra', 'Voador', 'Inseto', 'Pedra',
-                  'Normal', 'Dragao', 'Aco']
-        metade = ['Lutador', 'Trevas', 'Fada']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'dark':
+        double = ['Psychic', 'Ghost']
+        normal = ['Fire', 'Water', 'Electric', 'Grass', 'Ice',
+                  'Poison', 'Ground', 'Flying', 'Bug', 'Rock',
+                  'Normal', 'Dragon', 'Steel']
+        half = ['Fighting', 'Dark', 'Fairy']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'aco':
-        dobro = ['Gelo', 'Pedra', 'Fada']
-        normal = ['Normal', 'Grama', 'Lutador', 'Veneno', 'Terra',
-                  'Voador', 'Psiquico', 'Inseto', 'Fantasma', 'Dragao',
-                  'Trevas']
-        metade = ['Fogo', 'Agua', 'Eletrico', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'steel':
+        double = ['Ice', 'Rock', 'Fairy']
+        normal = ['Normal', 'Grass', 'Fighting', 'Poison', 'Ground',
+                  'Flying', 'Psychic', 'Bug', 'Ghost', 'Dragon',
+                  'Dark']
+        half = ['Fire', 'Water', 'Electric', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
-    elif tipo == 'fada':
-        dobro = ['Lutador', 'Dragao', 'Trevas']
-        normal = ['Normal', 'Agua', 'Eletrico', 'Grama', 'Gelo',
-                  'Terra', 'Voador', 'Psiquico', 'Inseto', 'Pedra',
-                  'Fantasma', 'Fada']
-        metade = ['Fogo', 'Veneno', 'Aco']
-        inefetivo = []
-        return jsonify({'Causa 2x a:': dobro,
-                        'Causa 1x a': normal,
-                        'Causa 0.5x a:': metade,
-                        'Nao causa dano:': inefetivo})
+    elif type == 'fairy':
+        double = ['Fighting', 'Dragon', 'Dark']
+        normal = ['Normal', 'Water', 'Electric', 'Grass', 'Ice',
+                  'Ground', 'Flying', 'Psychic', 'Bug', 'Rock',
+                  'Ghost', 'Fairy']
+        half = ['Fire', 'Poison', 'Steel']
+        ineffective = []
+        return jsonify({'Deal 2x in:': double,
+                        'Deal 1x in:': normal,
+                        'Deal 0.5x in:': half,
+                        'Deal no damage:': ineffective})
 
 
 app.run(host='0.0.0.0')

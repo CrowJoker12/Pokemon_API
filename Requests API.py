@@ -1,14 +1,14 @@
 import requests
 from time import sleep
 
-ataque = input("Tipo de Ataque: ")
+attack = input("Type of Attack: ")
 print('=-='*5)
-print('Processando...')
+print('Processing...')
 sleep(2)
-info = requests.get(f'https://api-fraquezaresistencia-pokemon.gabriel-ferrazf.repl.co/{ataque}')
+info = requests.get(f'https://api-fraquezaresistencia-pokemon.gabriel-ferrazf.repl.co/{attack}')
 info = info.json()
 print('=-='*5)
-print(f'Super Efetivo a:{info["Causa 2x a:"]}')
-print(f'Efetivo a:{info["Causa 1x a"]}')
-print(f'Não Muito Efetivo a:{info["Causa 0.5x a:"]}')
-print(f'Inefetivo a:{info["Nao causa dano:"]}')
+print(f'Super Effective against:{info["Deal 2x in:"]}')
+print(f'Effective against:{info["Deal 1x in:"]}')
+print(f'Not Very Effective against:{info["Deal 0.5x in:"]}')
+print(f'Ineffective against:{info["Deal no damage:"]}')
